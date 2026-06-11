@@ -1,0 +1,45 @@
+<<<<<<< HEAD
+[package]
+name = "neqst_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.7.5", features = ["ws", "macros"] }
+blake3 = "1.5.1"
+base64 = "0.22.1"
+chacha20poly1305 = "0.10.1"
+ed25519-dalek = "2.1.1"
+futures = "0.3.30"
+libloading = "0.8.5"
+rand_core = "0.6.4"
+serde = { version = "1.0.203", features = ["derive"] }
+serde_json = "1.0.120"
+surrealdb = { version = "2.6.0", features = ["kv-mem", "kv-rocksdb"] }
+tokio = { version = "1.41.0", features = ["rt-multi-thread", "macros", "signal", "time", "fs"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["fmt", "json", "env-filter"] }
+x25519-dalek = "2.0.1"
+=======
+[package]
+name = "neqst_core"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.7.5", features = ["ws", "macros"] }
+blake3 = "1.5.1"
+base64 = "0.22.1"
+chacha20poly1305 = "0.10.1"
+ed25519-dalek = "2.1.1"
+futures = "0.3.30"
+libloading = "0.8.5"
+rand_core = "0.6.4"
+serde = { version = "1.0.203", features = ["derive"] }
+serde_json = "1.0.120"
+surrealdb = { version = "2.6.0", features = ["kv-mem", "kv-rocksdb"] }
+tokio = { version = "1.41.0", features = ["rt-multi-thread", "macros", "signal", "time", "fs"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["fmt", "json", "env-filter"] }
+x25519-dalek = "2.0.1"
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

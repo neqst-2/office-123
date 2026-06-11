@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+Package: neqst-office-123
+Version: 0.1.0
+Section: office
+Priority: optional
+Architecture: amd64
+Maintainer: NeQST <security@neqst.org>
+Description: NeQST Office 1-2-3 (offline-first, sovereign suite)
+ Depends: libgtk-3-0, libstdc++6
+=======
+Package: neqst-office-123
+Version: 0.1.0
+Section: office
+Priority: optional
+Architecture: amd64
+Maintainer: NeQST <security@neqst.org>
+Description: NeQST Office 1-2-3 (offline-first, sovereign suite)
+ Depends: libgtk-3-0, libstdc++6
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

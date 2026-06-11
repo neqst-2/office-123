@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+param(
+  [Parameter(Mandatory=$true)][string]$StageDir,
+  [Parameter(Mandatory=$true)][string]$OutDir
+)
+
+# Expected staged layout:
+# $StageDir\bin\neqst_core.exe
+# $StageDir\frontend\...
+# $StageDir\embedded\libreoffice\26.2.1\program\...
+# $StageDir\config\compatibility_matrix.json
+
+# Build steps are environment-specific:
+# 1) heat.exe/candle.exe/light.exe component harvesting for $StageDir
+# 2) wix build into an MSI in $OutDir
+
+Write-Output "Wix build placeholder. StageDir=$StageDir OutDir=$OutDir"
+=======
+param(
+  [Parameter(Mandatory=$true)][string]$StageDir,
+  [Parameter(Mandatory=$true)][string]$OutDir
+)
+
+# Expected staged layout:
+# $StageDir\bin\neqst_core.exe
+# $StageDir\frontend\...
+# $StageDir\embedded\libreoffice\26.2.1\program\...
+# $StageDir\config\compatibility_matrix.json
+
+# Build steps are environment-specific:
+# 1) heat.exe/candle.exe/light.exe component harvesting for $StageDir
+# 2) wix build into an MSI in $OutDir
+
+Write-Output "Wix build placeholder. StageDir=$StageDir OutDir=$OutDir"
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

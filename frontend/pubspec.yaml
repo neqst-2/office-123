@@ -1,0 +1,53 @@
+<<<<<<< HEAD
+name: neqst_office_123
+description: NeQST Office 1-2-3 multi-platform frontend shell for Windows, Linux, and Web.
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  fluent_ui: ^4.15.1
+  flutter_riverpod: ^3.3.1
+  http: ^1.6.0
+  qr_flutter: ^4.1.0
+  web_socket_channel: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+=======
+name: neqst_office_123
+description: NeQST Office 1-2-3 multi-platform frontend shell for Windows, Linux, and Web.
+publish_to: none
+version: 0.1.0+1
+
+environment:
+  sdk: ^3.8.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  fluent_ui: ^4.15.1
+  flutter_riverpod: ^3.3.1
+  http: ^1.6.0
+  qr_flutter: ^4.1.0
+  web_socket_channel: ^3.0.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

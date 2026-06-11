@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+{
+  "name": "NeQST Office 1-2-3",
+  "short_name": "NeQST Office",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#111317",
+  "theme_color": "#5566FF",
+  "description": "Unified desktop and web shell for NeQST Office 1-2-3.",
+  "orientation": "landscape"
+}
+=======
+{
+  "name": "NeQST Office 1-2-3",
+  "short_name": "NeQST Office",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#111317",
+  "theme_color": "#5566FF",
+  "description": "Unified desktop and web shell for NeQST Office 1-2-3.",
+  "orientation": "landscape"
+}
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

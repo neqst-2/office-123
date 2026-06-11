@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+Name:           neqst-office-123
+Version:        0.1.0
+Release:        1%{?dist}
+Summary:        NeQST Office 1-2-3 (offline-first, sovereign suite)
+License:        Proprietary + OSS Aggregation
+BuildArch:      x86_64
+
+%description
+NeQST Office 1-2-3 bundles a Rust orchestrator, Flutter UI, and a detached LibreOffice runtime.
+
+%install
+mkdir -p %{buildroot}/opt/neqst-office-123/
+cp -a stage/* %{buildroot}/opt/neqst-office-123/
+
+%files
+/opt/neqst-office-123/
+=======
+Name:           neqst-office-123
+Version:        0.1.0
+Release:        1%{?dist}
+Summary:        NeQST Office 1-2-3 (offline-first, sovereign suite)
+License:        Proprietary + OSS Aggregation
+BuildArch:      x86_64
+
+%description
+NeQST Office 1-2-3 bundles a Rust orchestrator, Flutter UI, and a detached LibreOffice runtime.
+
+%install
+mkdir -p %{buildroot}/opt/neqst-office-123/
+cp -a stage/* %{buildroot}/opt/neqst-office-123/
+
+%files
+/opt/neqst-office-123/
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

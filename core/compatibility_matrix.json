@@ -1,0 +1,19 @@
+<<<<<<< HEAD
+{
+  "current_stable_core": "26.2.1",
+  "minimum_required_version": "26.2.1",
+  "embedded_hash_blake3": "REPLACE_WITH_VERIFIED_BLAKE3_OF_LIBREOFFICEKIT_BINARY",
+  "allowed_upstream_releases": [
+    "26.2.1"
+  ]
+}
+=======
+{
+  "current_stable_core": "26.2.1",
+  "minimum_required_version": "26.2.1",
+  "embedded_hash_blake3": "REPLACE_WITH_VERIFIED_BLAKE3_OF_LIBREOFFICEKIT_BINARY",
+  "allowed_upstream_releases": [
+    "26.2.1"
+  ]
+}
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

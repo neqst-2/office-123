@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+#!/usr/bin/env bash
+set -euo pipefail
+
+STAGE_DIR="${1:-stage}"
+OUT_DIR="${2:-dist}"
+
+mkdir -p "${OUT_DIR}"
+
+echo "DMG build placeholder"
+echo "Expected staged layout: ${STAGE_DIR}/bin, ${STAGE_DIR}/frontend, ${STAGE_DIR}/embedded/libreoffice/26.2.1/program, ${STAGE_DIR}/config"
+=======
+#!/usr/bin/env bash
+set -euo pipefail
+
+STAGE_DIR="${1:-stage}"
+OUT_DIR="${2:-dist}"
+
+mkdir -p "${OUT_DIR}"
+
+echo "DMG build placeholder"
+echo "Expected staged layout: ${STAGE_DIR}/bin, ${STAGE_DIR}/frontend, ${STAGE_DIR}/embedded/libreoffice/26.2.1/program, ${STAGE_DIR}/config"
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

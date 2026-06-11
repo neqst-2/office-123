@@ -1,0 +1,51 @@
+<<<<<<< HEAD
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="NeQST Office 1-2-3" Language="1033" Version="0.1.0" Manufacturer="NeQST" UpgradeCode="PUT-GUID-HERE">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of NeQST Office 1-2-3 is already installed." />
+    <MediaTemplate />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="NeQST Office 1-2-3">
+          <Directory Id="BIN" Name="bin" />
+          <Directory Id="FRONTEND" Name="frontend" />
+          <Directory Id="EMBEDDED" Name="embedded" />
+          <Directory Id="CONFIG" Name="config" />
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="ProductFeature" Title="NeQST Office 1-2-3" Level="1">
+      <ComponentGroupRef Id="NeqstFiles" />
+    </Feature>
+  </Product>
+</Wix>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="NeQST Office 1-2-3" Language="1033" Version="0.1.0" Manufacturer="NeQST" UpgradeCode="PUT-GUID-HERE">
+    <Package InstallerVersion="500" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of NeQST Office 1-2-3 is already installed." />
+    <MediaTemplate />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="NeQST Office 1-2-3">
+          <Directory Id="BIN" Name="bin" />
+          <Directory Id="FRONTEND" Name="frontend" />
+          <Directory Id="EMBEDDED" Name="embedded" />
+          <Directory Id="CONFIG" Name="config" />
+        </Directory>
+      </Directory>
+    </Directory>
+
+    <Feature Id="ProductFeature" Title="NeQST Office 1-2-3" Level="1">
+      <ComponentGroupRef Id="NeqstFiles" />
+    </Feature>
+  </Product>
+</Wix>
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9

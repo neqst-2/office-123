@@ -1,0 +1,197 @@
+<<<<<<< HEAD
+# NeQST Office 1-2-3 — Phase 1 Core Data Schema (SurrealQL)
+
+# -----------------------------------------------------------------------------
+# ENCRYPTION STRATEGY
+# -----------------------------------------------------------------------------
+# - Database content is treated as untrusted at-rest storage. Confidential fields
+#   MUST be stored as authenticated ciphertext (AEAD), never plaintext.
+# - Sensitive payload fields (e.g., mail.body_text, mail.body_html, and any future
+#   document content blobs) are stored as base64url-encoded ciphertext strings.
+# - encryption_metadata stores non-secret parameters required to validate and
+#   decrypt records (e.g., algorithm identifiers, key reference IDs, nonce, tag,
+#   AAD context identifiers, and key-rotation epoch).
+# - Key material MUST NOT be stored in SurrealDB. Keys are obtained via the Rust
+#   Security Layer from an OS keystore / hardware-backed store.
+# - For post-quantum readiness, use a hybrid scheme for envelope keys:
+#   ML-KEM (Kyber1024) + X25519 to derive per-record DEKs. Rotate DEKs and key
+#   references regularly; keep metadata stable and strictly validated.
+# - Integrity/anti-tamper: the Rust layer SHOULD bind record IDs and selected
+#   header fields as AAD (e.g., message_id, date_received) so ciphertext cannot
+#   be replayed across records without detection.
+
+# -----------------------------------------------------------------------------
+# NODE TABLES
+# -----------------------------------------------------------------------------
+
+DEFINE TABLE user SCHEMAFULL;
+DEFINE FIELD id ON TABLE user TYPE record<user>;
+DEFINE FIELD username ON TABLE user TYPE string;
+DEFINE FIELD public_key_ed25519 ON TABLE user TYPE string;
+DEFINE FIELD created_at ON TABLE user TYPE datetime;
+DEFINE FIELD settings ON TABLE user TYPE object;
+
+DEFINE INDEX user_username_unique ON TABLE user COLUMNS username UNIQUE;
+DEFINE INDEX user_created_at_idx ON TABLE user COLUMNS created_at;
+
+DEFINE TABLE mail SCHEMAFULL;
+DEFINE FIELD id ON TABLE mail TYPE record<mail>;
+DEFINE FIELD message_id ON TABLE mail TYPE string;
+DEFINE FIELD subject ON TABLE mail TYPE string;
+DEFINE FIELD body_text ON TABLE mail TYPE string;
+DEFINE FIELD body_html ON TABLE mail TYPE string;
+DEFINE FIELD date_received ON TABLE mail TYPE datetime;
+DEFINE FIELD is_read ON TABLE mail TYPE bool;
+DEFINE FIELD size ON TABLE mail TYPE int;
+DEFINE FIELD encryption_metadata ON TABLE mail TYPE object;
+
+DEFINE INDEX mail_message_id_unique ON TABLE mail COLUMNS message_id UNIQUE;
+DEFINE INDEX mail_date_received_idx ON TABLE mail COLUMNS date_received;
+DEFINE INDEX mail_is_read_idx ON TABLE mail COLUMNS is_read;
+DEFINE INDEX mail_is_read_date_received_idx ON TABLE mail COLUMNS is_read, date_received;
+
+DEFINE TABLE calendar_event SCHEMAFULL;
+DEFINE FIELD id ON TABLE calendar_event TYPE record<calendar_event>;
+DEFINE FIELD title ON TABLE calendar_event TYPE string;
+DEFINE FIELD description ON TABLE calendar_event TYPE string;
+DEFINE FIELD start_time ON TABLE calendar_event TYPE datetime;
+DEFINE FIELD end_time ON TABLE calendar_event TYPE datetime;
+DEFINE FIELD location ON TABLE calendar_event TYPE option<string>;
+DEFINE FIELD recurrence_rule ON TABLE calendar_event TYPE option<string>;
+
+DEFINE INDEX calendar_event_start_time_idx ON TABLE calendar_event COLUMNS start_time;
+DEFINE INDEX calendar_event_agenda_idx ON TABLE calendar_event COLUMNS start_time, end_time;
+
+DEFINE TABLE document_meta SCHEMAFULL;
+DEFINE FIELD id ON TABLE document_meta TYPE record<document_meta>;
+DEFINE FIELD filename ON TABLE document_meta TYPE string;
+DEFINE FIELD file_size ON TABLE document_meta TYPE int;
+DEFINE FIELD storage_path ON TABLE document_meta TYPE string;
+DEFINE FIELD mime_type ON TABLE document_meta TYPE string;
+DEFINE FIELD last_modified ON TABLE document_meta TYPE datetime;
+
+DEFINE INDEX document_meta_filename_idx ON TABLE document_meta COLUMNS filename;
+DEFINE INDEX document_meta_last_modified_idx ON TABLE document_meta COLUMNS last_modified;
+DEFINE INDEX document_meta_storage_path_unique ON TABLE document_meta COLUMNS storage_path UNIQUE;
+
+# -----------------------------------------------------------------------------
+# EDGE TABLES (RELATIONS)
+# -----------------------------------------------------------------------------
+
+DEFINE TABLE sent_by SCHEMAFULL TYPE RELATION;
+DEFINE FIELD in ON TABLE sent_by TYPE record<mail>;
+DEFINE FIELD out ON TABLE sent_by TYPE record<user>;
+
+DEFINE INDEX sent_by_in_idx ON TABLE sent_by COLUMNS in;
+DEFINE INDEX sent_by_out_idx ON TABLE sent_by COLUMNS out;
+DEFINE INDEX sent_by_in_out_unique ON TABLE sent_by COLUMNS in, out UNIQUE;
+
+DEFINE TABLE linked_to SCHEMAFULL TYPE RELATION;
+DEFINE FIELD in ON TABLE linked_to TYPE record;
+DEFINE FIELD out ON TABLE linked_to TYPE record;
+DEFINE FIELD created_at ON TABLE linked_to TYPE datetime;
+DEFINE FIELD context_anchor ON TABLE linked_to TYPE option<string>;
+
+DEFINE INDEX linked_to_in_idx ON TABLE linked_to COLUMNS in;
+DEFINE INDEX linked_to_out_idx ON TABLE linked_to COLUMNS out;
+DEFINE INDEX linked_to_in_out_idx ON TABLE linked_to COLUMNS in, out;
+DEFINE INDEX linked_to_created_at_idx ON TABLE linked_to COLUMNS created_at;
+=======
+# NeQST Office 1-2-3 — Phase 1 Core Data Schema (SurrealQL)
+
+# -----------------------------------------------------------------------------
+# ENCRYPTION STRATEGY
+# -----------------------------------------------------------------------------
+# - Database content is treated as untrusted at-rest storage. Confidential fields
+#   MUST be stored as authenticated ciphertext (AEAD), never plaintext.
+# - Sensitive payload fields (e.g., mail.body_text, mail.body_html, and any future
+#   document content blobs) are stored as base64url-encoded ciphertext strings.
+# - encryption_metadata stores non-secret parameters required to validate and
+#   decrypt records (e.g., algorithm identifiers, key reference IDs, nonce, tag,
+#   AAD context identifiers, and key-rotation epoch).
+# - Key material MUST NOT be stored in SurrealDB. Keys are obtained via the Rust
+#   Security Layer from an OS keystore / hardware-backed store.
+# - For post-quantum readiness, use a hybrid scheme for envelope keys:
+#   ML-KEM (Kyber1024) + X25519 to derive per-record DEKs. Rotate DEKs and key
+#   references regularly; keep metadata stable and strictly validated.
+# - Integrity/anti-tamper: the Rust layer SHOULD bind record IDs and selected
+#   header fields as AAD (e.g., message_id, date_received) so ciphertext cannot
+#   be replayed across records without detection.
+
+# -----------------------------------------------------------------------------
+# NODE TABLES
+# -----------------------------------------------------------------------------
+
+DEFINE TABLE user SCHEMAFULL;
+DEFINE FIELD id ON TABLE user TYPE record<user>;
+DEFINE FIELD username ON TABLE user TYPE string;
+DEFINE FIELD public_key_ed25519 ON TABLE user TYPE string;
+DEFINE FIELD created_at ON TABLE user TYPE datetime;
+DEFINE FIELD settings ON TABLE user TYPE object;
+
+DEFINE INDEX user_username_unique ON TABLE user COLUMNS username UNIQUE;
+DEFINE INDEX user_created_at_idx ON TABLE user COLUMNS created_at;
+
+DEFINE TABLE mail SCHEMAFULL;
+DEFINE FIELD id ON TABLE mail TYPE record<mail>;
+DEFINE FIELD message_id ON TABLE mail TYPE string;
+DEFINE FIELD subject ON TABLE mail TYPE string;
+DEFINE FIELD body_text ON TABLE mail TYPE string;
+DEFINE FIELD body_html ON TABLE mail TYPE string;
+DEFINE FIELD date_received ON TABLE mail TYPE datetime;
+DEFINE FIELD is_read ON TABLE mail TYPE bool;
+DEFINE FIELD size ON TABLE mail TYPE int;
+DEFINE FIELD encryption_metadata ON TABLE mail TYPE object;
+
+DEFINE INDEX mail_message_id_unique ON TABLE mail COLUMNS message_id UNIQUE;
+DEFINE INDEX mail_date_received_idx ON TABLE mail COLUMNS date_received;
+DEFINE INDEX mail_is_read_idx ON TABLE mail COLUMNS is_read;
+DEFINE INDEX mail_is_read_date_received_idx ON TABLE mail COLUMNS is_read, date_received;
+
+DEFINE TABLE calendar_event SCHEMAFULL;
+DEFINE FIELD id ON TABLE calendar_event TYPE record<calendar_event>;
+DEFINE FIELD title ON TABLE calendar_event TYPE string;
+DEFINE FIELD description ON TABLE calendar_event TYPE string;
+DEFINE FIELD start_time ON TABLE calendar_event TYPE datetime;
+DEFINE FIELD end_time ON TABLE calendar_event TYPE datetime;
+DEFINE FIELD location ON TABLE calendar_event TYPE option<string>;
+DEFINE FIELD recurrence_rule ON TABLE calendar_event TYPE option<string>;
+
+DEFINE INDEX calendar_event_start_time_idx ON TABLE calendar_event COLUMNS start_time;
+DEFINE INDEX calendar_event_agenda_idx ON TABLE calendar_event COLUMNS start_time, end_time;
+
+DEFINE TABLE document_meta SCHEMAFULL;
+DEFINE FIELD id ON TABLE document_meta TYPE record<document_meta>;
+DEFINE FIELD filename ON TABLE document_meta TYPE string;
+DEFINE FIELD file_size ON TABLE document_meta TYPE int;
+DEFINE FIELD storage_path ON TABLE document_meta TYPE string;
+DEFINE FIELD mime_type ON TABLE document_meta TYPE string;
+DEFINE FIELD last_modified ON TABLE document_meta TYPE datetime;
+
+DEFINE INDEX document_meta_filename_idx ON TABLE document_meta COLUMNS filename;
+DEFINE INDEX document_meta_last_modified_idx ON TABLE document_meta COLUMNS last_modified;
+DEFINE INDEX document_meta_storage_path_unique ON TABLE document_meta COLUMNS storage_path UNIQUE;
+
+# -----------------------------------------------------------------------------
+# EDGE TABLES (RELATIONS)
+# -----------------------------------------------------------------------------
+
+DEFINE TABLE sent_by SCHEMAFULL TYPE RELATION;
+DEFINE FIELD in ON TABLE sent_by TYPE record<mail>;
+DEFINE FIELD out ON TABLE sent_by TYPE record<user>;
+
+DEFINE INDEX sent_by_in_idx ON TABLE sent_by COLUMNS in;
+DEFINE INDEX sent_by_out_idx ON TABLE sent_by COLUMNS out;
+DEFINE INDEX sent_by_in_out_unique ON TABLE sent_by COLUMNS in, out UNIQUE;
+
+DEFINE TABLE linked_to SCHEMAFULL TYPE RELATION;
+DEFINE FIELD in ON TABLE linked_to TYPE record;
+DEFINE FIELD out ON TABLE linked_to TYPE record;
+DEFINE FIELD created_at ON TABLE linked_to TYPE datetime;
+DEFINE FIELD context_anchor ON TABLE linked_to TYPE option<string>;
+
+DEFINE INDEX linked_to_in_idx ON TABLE linked_to COLUMNS in;
+DEFINE INDEX linked_to_out_idx ON TABLE linked_to COLUMNS out;
+DEFINE INDEX linked_to_in_out_idx ON TABLE linked_to COLUMNS in, out;
+DEFINE INDEX linked_to_created_at_idx ON TABLE linked_to COLUMNS created_at;
+>>>>>>> 0dc035f57a1c694c8225272cdbd0bfc9c9d60bb9
