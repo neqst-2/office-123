@@ -17,9 +17,9 @@
 
 ## 👁️ Die Vision
 
-Im Juni 2026 ist der Markt für Bürosoftware zersplittert. Große europäische Cloud-Anbieter versuchen mit Initiativen wie *Euro-Office*[cite: 1, 2], rein webbasierte Lösungen zu etablieren, um eigene Infrastrukturen zu monetarisieren[cite: 1]. Die *LibreOffice Foundation* kritisiert dies völlig zu Recht als Alibi-Souveränität und "De-facto-Verbündete" der US-Monopole[cite: 2], da kritische offene Standards und echte Client-Unabhängigkeit auf der Strecke bleiben[cite: 2].
+Im Juni 2026 ist der Markt für Bürosoftware zersplittert. Große europäische Cloud-Anbieter versuchen mit Initiativen wie *Euro-Office*, rein webbasierte Lösungen zu etablieren, um eigene Infrastrukturen zu monetarisieren. Die *LibreOffice Foundation* kritisiert dies völlig zu Recht als Alibi-Souveränität und "De-facto-Verbündete" der US-Monopole, da kritische offene Standards und echte Client-Unabhängigkeit auf der Strecke bleiben.
 
-**NeQST Office 1-2-3** bricht diesen Kreis. Wir bauen keinen Klon von Microsoft 365 und kein isoliertes Web-Silo[cite: 1]. Wir vollziehen den lang ersehnten **Zeitsprung**: Wir bringen die legendäre, nahtlose Interoperabilität und Nutzerzentrierung von *Lotus Notes*, *Lotus 1-2-3* und *Ami Pro* direkt in die Moderne – als freie, unknackbare und dezentrale All-in-One-Suite.
+**NeQST Office 1-2-3** bricht diesen Kreis. Wir bauen keinen Klon von Microsoft 365 und kein isoliertes Web-Silo. Wir vollziehen den lang ersehnten **Zeitsprung**: Wir bringen die legendäre, nahtlose Interoperabilität und Nutzerzentrierung von *Lotus Notes*, *Lotus 1-2-3* und *Ami Pro* direkt in die Moderne – als freie, unknackbare und dezentrale All-in-One-Suite.
 
 ---
 
@@ -28,30 +28,30 @@ Im Juni 2026 ist der Markt für Bürosoftware zersplittert. Große europäische 
 Um die Trägheit alter C++-Codebasen zu überwinden, ohne das Rad bei der Dokumentenkompatibilität neu zu erfinden, trennen wir Kern und Oberfläche radikal:
 
 1. **The Engine: Headless LibreOffice 24+**  
-   Wir nutzen den mächtigen, bewährten Kern von LibreOffice[cite: 1, 2] über das *LibreOfficeKit*[cite: 1, 2] als reine, headless Rechenmaschine[cite: 1, 2]. Keine Altbacken-GUI[cite: 1], kein UNO-Frust. Nur pure Rendering- und Formatierungspower[cite: 1, 2].
+   Wir nutzen den mächtigen, bewährten Kern von LibreOffice über das *LibreOfficeKit* als reine, headless Rechenmaschine. Keine Altbacken-GUI, kein UNO-Frust. Nur pure Rendering- und Formatierungspower.
    
 2. **The Face: Synchronous Flutter Dual-Frontend**  
-   Eine einzige, hochmoderne Codebasis in Dart/Flutter liefert eine pixelgenaue, kontextsensitive und rasend schnelle GUI – simultan als **native Desktop-App** (Linux, Windows) und als **Web-App**[cite: 1, 2]. Volle Interoperabilität: Text, Tabelle, Präsentation, Mail und Kalender leben nahtlos vereint in *einem* Tab-System[cite: 1, 2].
+   Eine einzige, hochmoderne Codebasis in Dart/Flutter liefert eine pixelgenaue, kontextsensitive und rasend schnelle GUI – simultan als **native Desktop-App** (Linux, Windows) und als **Web-App**. Volle Interoperabilität: Text, Tabelle, Präsentation, Mail und Kalender leben nahtlos vereint in *einem* Tab-System.
    
 3. **The Brain: SurrealDB (Embedded Rust)**  
-   Schluss mit starren Ordnerstrukturen oder korrupten Outlook-PST-Datengräbern[cite: 1, 2]. Ein kryptographisch abgesicherter **NoSQL-Multi-Model-Wissensgraph** verbindet Mails, Termine, Kontakte und Dokumente[cite: 1, 2]. 
+   Schluss mit starren Ordnerstrukturen oder korrupten Outlook-PST-Datengräbern. Ein kryptographisch abgesicherter **NoSQL-Multi-Model-Wissensgraph** verbindet Mails, Termine, Kontakte und Dokumente. 
 
 ---
 
 ## 🛡️ Souveränität & Zero-Trust (BSI-konform)
 
-* **Offline-First & Dezentral:** Funktioniert komplett ohne Internet auf dem Einzelplatz-PC, skaliert aber nahtlos bis zu 5000+ Nutzern[cite: 1, 2].
-* **Der Arbeitsplatz als Mini-Server:** Jede lokale Instanz kann als verschlüsselter Webservice fungieren, um via Mobilgerät remote und sicher auf das eigene Office zuzugreifen[cite: 1, 2].
-* **Krypto-Festung:** Native Ende-zu-Ende-Verschlüsselung (E2EE) im Ruhezustand und bei der Peer-to-Peer-Synchronisation (über VPN, Tor/Onion) direkt auf Basis der Rust-Core-Sicherheit[cite: 1, 2].
+* **Offline-First & Dezentral:** Funktioniert komplett ohne Internet auf dem Einzelplatz-PC, skaliert aber nahtlos bis zu 5000+ Nutzern.
+* **Der Arbeitsplatz als Mini-Server:** Jede lokale Instanz kann als verschlüsselter Webservice fungieren, um via Mobilgerät remote und sicher auf das eigene Office zuzugreifen.
+* **Krypto-Festung:** Native Ende-zu-Ende-Verschlüsselung (E2EE) im Ruhezustand und bei der Peer-to-Peer-Synchronisation (über VPN, Tor/Onion) direkt auf Basis der Rust-Core-Sicherheit.
 
 ---
 
 ## 🛣️ Roadmap / Next Steps
 
-- [ ] **Phase 1:** Spezifikation des SurrealDB Graph-Datenmodells für PIM (Mail/Kalender/Kontakte)[cite: 2].
-- [ ] **Phase 2:** Design des modernen "Lotus-Moderne" Frontend-Skeletts in Flutter[cite: 1, 2].
-- [ ] **Phase 3:** Implementierung der C-Bindings zum Headless LibreOffice Core (LibreOfficeKit)[cite: 1, 2].
-- [ ] **Phase 4:** Integration des leichtgewichtigen, dezentralen P2P-Webservers[cite: 1, 2].
+- [ ] **Phase 1:** Spezifikation des SurrealDB Graph-Datenmodells für PIM (Mail/Kalender/Kontakte).
+- [ ] **Phase 2:** Design des modernen "Lotus-Moderne" Frontend-Skeletts in Flutter.
+- [ ] **Phase 3:** Implementierung der C-Bindings zum Headless LibreOffice Core (LibreOfficeKit).
+- [ ] **Phase 4:** Integration des leichtgewichtigen, dezentralen P2P-Webservers.
 
 ---
 
